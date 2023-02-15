@@ -1,0 +1,132 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+.logo{
+    height: 60px;
+    width: 60px;
+}
+.font{
+    color: white;
+}
+.footer{
+    padding-top: 10%;
+}
+a{
+    text-decoration: none ;
+    color: white;
+}
+
+.f_img{
+    height: 60px;
+    width: 80px;
+    
+}
+.carousel-item i
+.img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    
+}
+.car-img{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.m_img{
+    height: 100%;
+    width: 100%;
+}
+.profile{
+    height:100px;
+    width: 100px;
+}
+  .navbar-toggler-icon{
+    color: white;
+  }
+  .text a{
+    color: white;
+  }
+  .icon{
+    color: white;
+  }
+  .icon:hover{
+    color:#ffc107;
+  }
+  .text a:hover{
+    color: #ffc107;
+  }
+  .search{
+    box-shadow:#ffc107 ;
+  }
+  .has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.menu {
+    position: relative;
+    text-align: center;
+    color: white;
+    
+  }
+  .menu img{
+    background-size: cover;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+}
+.card{
+    background: #212529;
+    height: 100%;
+    width: 50%;
+}
+.pricing-entry img{
+    height: 12%;
+    width: 12%;
+
+}
+.dot{
+    color: #ffc107;
+}
+.staff img{
+    height: 50%;
+    width: 50%;
+}
+.chef{
+    color: #ffc107;
+}
+.contact-section input {
+    background-color: transparent;
+}
+.contact-section textarea {
+    background-color: transparent;
+}
+.contact-section input :hover {
+   background-color: transparent;
+}
+.carousel-item .img{
+  padding-top: 20%;
+  height: 90%;
+  width: 50%;
+}
+#fonts{
+  font-family: 'Zeyada', cursive;
+  color: #ffc107;
+}
+
