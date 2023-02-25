@@ -39,23 +39,7 @@ background-repeat: no-repeat; background-size: cover;
         </div>
 
         <div class="row text-white text-center mx-4 my-5">
-            <div class=" col-12  ">
-                <div class="border border-1 p-1 text-warning "><h3>Add & remove</h3></div>
-                <div class="d-flex">
-           <div class="mx-5"> <h2>Add users</h2>
-           <a href="add_user.php">Add_user</a></div>
-           <div class="mx-5"> <h2>Add offers</h2>
-            <a href="add_offers.php">Add_offer</a></div>
-                
-                    <div>
-            <h2 class="mx-5">Remove User</h2>
-            <a href="View_user.php">Remove_User</a></div>
-           <div class="mx-5"> <h2>Remove Offer</h2>
-            <a href="View_user.php">Remove_Offer</a></div>
-            <div class="mx-5"> <h2>View</h2>
-           <a href="View_user.php">View_user</a></div>
-            </div>
-            </div>
+            
 
             <div class=" col-12   ">
             <div class="border border-1 p-1 text-warning mt-5"><h3>about</h3></div>
@@ -66,25 +50,7 @@ background-repeat: no-repeat; background-size: cover;
             </p>
             </div>
         </div>
-        <div class="row">
-                    <div class="border border-1 p-1 bg-warning text-center text-white"><h3>Messages</h3></div>
-                    <div class="table-responsive">
-                    <table class="table text-white">
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Subject</th>
-                            <th>Message</th>
-                        </tr>
-                        <tr>
-                            <td>Kriti</td>
-                            <td>Kriti@gmail.com</td>
-                            <td>delivery</td>
-                            <td> I have not get a pizza in time your delivery service is very bad</td>
-                        </tr>
-                    </table>
-                    </div>
-        </div>
+        
     </div>
 
     <?php
