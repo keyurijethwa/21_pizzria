@@ -47,7 +47,7 @@ background-repeat: no-repeat; background-size: cover;
                         <div class="text-center"> <img class="rounded-circle" src="img/person_1.jpg" alt=""></div>
                         <div class="info text-center">
                             <h3><a href="teacher-single.html">Tom Smith</a></h3>
-                            <span class="position">Hair Specialist</span>
+                            <span class="position">Italian Pizza Specialist</span>
                             <div class="text">
                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and
                                     Consonantia, there live the blind texts.</p>
@@ -60,7 +60,7 @@ background-repeat: no-repeat; background-size: cover;
                         <div class="text-center"> <img class="rounded-circle" src="img/person_2.jpg" alt=""></div>
                         <div class="info text-center">
                             <h3><a href="teacher-single.html">Mark Wilson</a></h3>
-                            <span class="position">Beard Specialist</span>
+                            <span class="position">margherita pizza Specialist</span>
                             <div class="text">
                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and
                                     Consonantia, there live the blind texts.</p>
@@ -73,7 +73,7 @@ background-repeat: no-repeat; background-size: cover;
                         <div class="text-center"> <img class="rounded-circle" src="img/person_3.jpg" alt=""></div>
                         <div class="info text-center">
                             <h3><a href="teacher-single.html">Patrick Jacobson</a></h3>
-                            <span class="position">Hair Stylist</span>
+                            <span class="position">Pizza Base</span>
                             <div class="text">
                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and
                                     Consonantia, there live the blind texts.</p>
@@ -86,7 +86,7 @@ background-repeat: no-repeat; background-size: cover;
                         <div class="text-center"> <img class="rounded-circle" src="img/person_4.jpg" alt=""></div>
                         <div class="info text-center">
                             <h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
-                            <span class="position">Beard Specialist</span>
+                            <span class="position">Italian Pizza</span>
                             <div class="text">
                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and
                                     Consonantia, there live the blind texts.</p>
