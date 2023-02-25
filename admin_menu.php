@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,15 +20,15 @@ background-position: center;
 background-repeat: no-repeat; background-size: cover;
 ">
   <?php
-    include_once('nav.php')
+    include_once('admin_nav.php')
   ?>
 
   <!-- menu  -->
  
   <div class="container text-white ">
     
-        <h1 class="text-center text-warning mt-5 p-4">Orders</h1>
-        <a href=""><button class="text-white bg-warning rounded">+ New Menu</button></a>
+        <h1 class="text-center text-warning mt-5 p-4">Menus</h1>
+        <a href="admin_new_menu.php"><button class="text-white bg-warning rounded fw-bold">+ New Menu</button></a>
         <div class="table-responsive">
             <table class="table text-white my-sm-5">
                 <thead>
@@ -37,7 +38,7 @@ background-repeat: no-repeat; background-size: cover;
                         <th scope="col">Price</th>
                         <th scope="col">Discription</th>
                         <th scope="col">Photo</th>
-                        <th></th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
