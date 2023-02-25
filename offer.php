@@ -32,11 +32,11 @@ background-repeat: no-repeat; background-size: cover;
         <h1 class="fs-1 text-warning p-5 fst-italic">Best offers for you</h1>
         <div class="row mb-5">
             <div class="col-md-6 col-12">
-                <img src="img/food-menu.webp" alt="">
+                <img src="img/offer-1.webp" alt="">
             </div>
             <div class="col-md-6 col-12 ">
                 <div class="d-block justify-content-center">
-                <P class="fs-4"> Week offer</P>
+                <P class="fs-4"> Week-End offer</P>
                     <P class="fs-4"> Date:14-15 apr ,2023</P>
                     <P class="fs-4">  Coupon Code:STR903JK8</P>
                     <P class="fs-4"> Discount:50%</P>
