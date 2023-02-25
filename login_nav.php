@@ -43,24 +43,9 @@ echo $first_part;
                 <div class="collapse text navbar-collapse  justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "index.php") {
-                                                    echo "active1";
-                                                } ?>" href="home.php"> Home</a>
-                        </li>
-                        <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "menu.php") {
-                                                    echo "active1";
-                                                } ?>" href="menu.php"> Menu</a>
-                        </li>
-                        <li class="nav-item px-3">
                             <a class="nav-link <?php if ($first_part == "offer.php") {
                                                     echo "active1";
                                                 } ?>" href="offer.php"> Offer</a>
-                        </li>
-                        <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "chef.php") {
-                                                    echo "active1";
-                                                } ?>" href="chef.php"> Chefs</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link <?php if ($first_part == "contact.php") {
