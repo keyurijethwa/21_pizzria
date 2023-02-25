@@ -2,7 +2,7 @@
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
-$first_part = $components[2];
+$first_part = $components[3];
 echo $first_part;
 ?>
 
@@ -43,55 +43,45 @@ echo $first_part;
                 </button>
                 <div class="collapse text navbar-collapse  justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
-                        <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "index.php") {
+                    <li class="nav-item px-3">
+                            <a class="nav-link <?php if ($first_part == "admin_users.php") {
                                                     echo "active1";
-                                                } ?>" href="home.php"> Home</a>
+                                                } ?>" href="admin_users.php"> Users</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "menu.php") {
+                            <a class="nav-link <?php if ($first_part == "admin_menu.php") {
                                                     echo "active1";
-                                                } ?>" href="menu.php"> Menu</a>
+                                                } ?>" href="admin_menu.php"> Menu</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "offer.php") {
+                            <a class="nav-link <?php if ($first_part == "admin_offer.php") {
                                                     echo "active1";
-                                                } ?>" href="offer.php"> Offer</a>
+                                                } ?>" href="admin_offer.php"> Offer</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "chef.php") {
+                            <a class="nav-link <?php if ($first_part == "admin_chef.php") {
                                                     echo "active1";
-                                                } ?>" href="chef.php"> Chefs</a>
+                                                } ?>" href="admin_chef.php"> Chefs</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "orders.php") {
+                            <a class="nav-link <?php if ($first_part == "admin_item.php") {
                                                     echo "active1";
-                                                } ?>" href="orders.php"> Orders</a>
+                                                } ?>" href="admin_item.php">Items</a>
                         </li>
-                        
                         <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "item.php") {
+                            <a class="nav-link <?php if ($first_part == "admin_orders.php") {
                                                     echo "active1";
-                                                } ?>" href="item.php">Items</a>
+                                                } ?>" href="admin_orders.php"> Orders</a>
                         </li>
-                       
+                        <li class="nav-item px-3">
+                            <a class="nav-link <?php if ($first_part == "admin_message.php") {
+                                                    echo "active1";
+                                                } ?>" href="admin_message.php">Messages</a>
+                        </li>
                     </ul>
                 </div>
                 <form class="d-flex">
-                    <div class="form-group has-search">
-                        <span class="fa fa-search form-control-feedback"></span>
-                        <input type="text" list="datalistOptions" class="form-control" placeholder="Search">
-                        <datalist id="datalistOptions">
-                            <option value="Italian Pizza">
-                            <option value="Hawaiian Pizza">
-                            <option value="Greek Pizza">
-                            <option value="Bacon Crispy Thins">
-                            <option value="Hawaiian Special">
-                            <option value="Ultimate Overload">
-                            <option value="Bacon Pizza">
-                            <option value="Ham & Pineapple">
-                        </datalist>
-                    </div>
+                    
                     <div class="mx-3 nav-item"><a class="nav-link icon <?php if ($first_part == "admin_profile.php") {
                                                     echo "active1";
                                                 } ?>" href="admin_profile.php"><i class="fa-solid fa-user fa-2xl icon"></i></a></div>
