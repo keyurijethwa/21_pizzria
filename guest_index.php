@@ -13,7 +13,7 @@
 
 <body style="background-image: url('img/bg_1.jpg');">
   <?php
-    include_once('nav.php')
+    include_once('guest_nav.php')
   ?>
 
   <!-- slider -->
