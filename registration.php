@@ -177,12 +177,13 @@ background-repeat: no-repeat; background-size: cover;
 
 <br/>
 <br/>
-<div class="row text-white">
+<div class="row text-white m-5">
+<h1 align="center" style=" color:white;padding-bottom: 10px;" class="p-3 text-warning"> Registration</h1>
 <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
-	<img src="img/pizza-2.jpg" alt="" class="img-fluid">
+	<img src="img/image_5.jpg" alt="" class="img-fluid" height="90%" width="90%">
 </div>
 <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12" style="border: 2px;">
-	<h1 align="center" style=" color:white;padding-bottom: 10px;" class="p-3 text-warning"> Registration</h1>
+	
 
 	<form onSubmit="return(validate123());" >
 
