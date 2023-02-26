@@ -17,6 +17,8 @@ background-repeat: no-repeat; background-size: cover;
     ?>
     <div class="container">
         <h1 class="mt-5 p-5 text-center text-warning fst-italic">All Login users</h1>
+        <a href="admin_new_user.php"><button class="text-white bg-warning rounded fw-bold my-5">+ New User</button></a>
+
         <div class="table-responsive">
             <table class="table text-white">
                 <tr class="bg-warning"> 
