@@ -27,8 +27,8 @@ background-repeat: no-repeat; background-size: cover;
  
   <div class="container text-white ">
     
-        <h1 class="text-center text-warning mt-5 p-4">Offers</h1>
-        <a href=""><button class="text-white bg-warning rounded fw-bold">+ New Offer</button></a>
+        <h1 class="text-center text-warning mt-5 p-4 fst-italic">Offers</h1>
+        <a href="admin_new_offer.php"><button class="text-white bg-warning rounded fw-bold">+ New Offer</button></a>
         <div class="table-responsive">
             <table class="table text-white my-sm-5">
                 <thead>
