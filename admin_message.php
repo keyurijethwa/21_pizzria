@@ -27,9 +27,9 @@ background-repeat: no-repeat; background-size: cover;
  
   <div class="container text-white ">
     
-        <h1 class="text-center text-warning mt-5 p-4">Messages</h1>
+        <h1 class="text-center text-warning mt-5 p-4 fst-italic">Messages</h1>
         
-        <div class="row">
+        <div class="row m-5">
                     <div class="border border-1 p-1 bg-warning text-center text-white"><h3>Messages</h3></div>
                     <div class="table-responsive">
                     <table class="table text-white">
