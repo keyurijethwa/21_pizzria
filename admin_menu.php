@@ -27,8 +27,8 @@ background-repeat: no-repeat; background-size: cover;
  
   <div class="container text-white ">
     
-        <h1 class="text-center text-warning mt-5 p-4">Menus</h1>
-        <a href="admin_new_menu.php"><button class="text-white bg-warning rounded fw-bold">+ New Menu</button></a>
+        <h1 class="text-center text-warning mt-5 p-4 fst-italic">Menus</h1>
+        <a href="admin_new_menu.php"><button class="text-white bg-warning rounded fw-bold ">+ New Menu</button></a>
         <div class="table-responsive">
             <table class="table text-white my-sm-5">
                 <thead>
