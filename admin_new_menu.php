@@ -10,14 +10,50 @@
 
 
 
-
 <body style="
 background-image: url('img/bg_4.jpg'); min-height: 500px;
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat; background-size: cover;
 ">
+<script>
+    function validate123() {
 
+        var mn = document.getElementById('menu').value;
+        var mid = document.getElementById('menuid').value;
+        var price = document.getElementById('price').value;
+        var dec = document.getElementById('decription').value;
+
+
+        if (mn == "") {
+            
+            document.getElementById('m1').innerHTML = "Menu name field cannot be empty";
+            document.getElementById('m1').style.color = "red";
+            document.getElementById('menu').style.borderColor = "red";
+            var vm = "false";
+        } else {
+            var menu = /^[a-zA-Z ]*$/;
+    
+            var e = menu.test(mn);
+            if (e == false) {
+                document.getElementById('menu').focus();
+                document.getElementById('m1').innerHTML = "Menu name must contain only letters";
+                document.getElementById('m1').style.color = "red";
+                document.getElementById('menu').style.borderColor = "red";
+                vm = "false";
+            } else {
+                document.getElementById('m1').innerHTML = "";
+                document.getElementById('menu').style.borderColor = "green";
+                vm = "true";
+            }
+        }
+        if (vm == "true" ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
     <?php
     include_once("admin_nav.php");
     ?>
@@ -33,26 +69,27 @@ background-repeat: no-repeat; background-size: cover;
             <form onSubmit="return(validate123());">
 
                 <div class="form-group">
-                    <label for="name">Menu Name:</label>
-                    <input type="text" class="form-control" placeholder="Enter Name" id="fname1" name="fn1" style="background-color: transparent;color:white">
-                    <p id="fn1"></p>
+                    <label>Menu Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter Name" id="menu" name="mn" style="background-color: transparent;color:white">
+                    <p id="m1"></p>
                 </div>
                 <div class="form-group">
-                    <label for="name">Menu Id:</label>
-                    <input type="text" class="form-control" placeholder="Enter Name" id="fname1" name="fn1" style="background-color: transparent;color:white">
-                    <p id="fn1"></p>
+                    <label>Menu Id:</label>
+                    <input type="text" class="form-control" placeholder="Enter Name" id="menuid" name="mid" style="background-color: transparent;color:white">
+                    <p id="m2"></p>
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Price:</label>
-                    <input type="text" class="form-control" placeholder="Enter Password" id="pass" name="pwd" style="background-color: transparent;color:white">
-                    <p id="passw"></p>
+                    <label>Price:</label>
+                    <input type="text" class="form-control" placeholder="Enter Password" id="price" name="pri" style="background-color: transparent;color:white">
+                    <p id="m3"></p>
                 </div>
                 <div class="form-group">
-                    <label for="date"> Description:</label><br>
-                    <textarea name="" id="" cols="30" rows="1" class="form-control" style="background-color: transparent;color:white" placeholder="Decription" required></textarea>
+                    <label> Description:</label><br>
+                    <textarea name="dec" id="decription" cols="30" rows="1" class="form-control" style="background-color: transparent;color:white" placeholder="Decription" required></textarea>
+                    <p id="m4"></p>
                 </div><br>
                 <div class="form-group">
-                    <label for="pwd">Photo:</label>
+                    <label>Photo:</label>
                     <input type="file" class="form-control" name="p_pic" style="background-color: transparent;color:white">
                 </div>
                 <div class="col-12 text-center">
