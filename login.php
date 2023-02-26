@@ -78,11 +78,11 @@
 
 <body style="background-image: url('img/bg_4.jpg');">
     <?php
-    include_once('nav.php')
+    include_once('guest_nav.php')
     ?>
     <div class=" text-white mt-5 ">
         <h1 class="pb-5 text-center pt-5 text-warning fst-italic">Login</h1>
-        <div class="row bg-dark m-5">
+        <div class="row  m-5">
             <div class="col-12 col-md-6 col-lg-6 text-center">
                 <div><img class="img-fluid" src="img/pizza-1.jpg" alt=""></div>
             </div>
