@@ -17,8 +17,8 @@ background-repeat: no-repeat; background-size: cover;
     ?>
      <div class="container text-white ">
      
-        <h1 class="text-center text-warning mt-5 p-4">Orders</h1>
-        <a href=""><button class="text-white bg-warning rounded fw-bold">+ New Orders</button></a>
+        <h1 class="text-center text-warning mt-5 p-4 fst-italic">Orders</h1>
+        <a href="admin_new_order.php"><button class="text-white bg-warning rounded fw-bold">+ New Orders</button></a>
         <div class="table-responsive">
             <table class="table text-white my-sm-5">
                 <thead>
@@ -55,7 +55,7 @@ background-repeat: no-repeat; background-size: cover;
                         <td>Large</td>
                         <td>cheese</td>
                         <td>2</td>
-                        <td></td>
+                        <td>Rajkot</td>
                         <th>2:30am</th>
                         <th>14/02/2023</th>
                         <th>No</th>
@@ -67,7 +67,7 @@ background-repeat: no-repeat; background-size: cover;
                         <td>regular</td>
                         <td>cheese</td>
                         <td>1</td>
-                        <td></td>
+                        <td>Rajkot</td>
                         <th>2:30am</th>
                         <th>14/02/2023</th>
                         <th>No</th>
