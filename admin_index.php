@@ -20,15 +20,19 @@ background-repeat: no-repeat; background-size: cover;
   <?php
     include_once('admin_nav.php')
   ?>
-  <div class="container p-5 m-5">
+  <div class="p-5 m-5">
+  <div class="container ">
   <div class="row">
-    <div class="col-4 bg-warning rounded ">
+    <div class="col-3 bg-warning rounded m-1">
      hi
     </div>
-    <div class="col-4 bg-warning rounded ">
+    <div class="col-3 bg-warning rounded ">
     hi
     </div>
-    <div class="col-4 bg-warning rounded ">
+    <div class="col-3 bg-warning rounded ">
+    hi
+    </div>
+    <div class="col-3 bg-warning rounded ">
     hi
     </div>
     </div>
@@ -36,7 +40,7 @@ background-repeat: no-repeat; background-size: cover;
     </div>
   </div>
   </div>
-  
+</div>
   <?php
   include_once('footer.php');
   ?>
