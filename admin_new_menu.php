@@ -8,66 +8,112 @@
     <title>Document</title>
 </head>
 
-
-
 <body style="
 background-image: url('img/bg_4.jpg'); min-height: 500px;
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat; background-size: cover;
 ">
-<script>
-    function validate123() {
-
-        var mn = document.getElementById('menu').value;
-        var mid = document.getElementById('menuid').value;
-        var price = document.getElementById('price').value;
-        var dec = document.getElementById('decription').value;
-
-
-        if (mn == "") {
-            
-            document.getElementById('m1').innerHTML = "Menu name field cannot be empty";
-            document.getElementById('m1').style.color = "red";
-            document.getElementById('menu').style.borderColor = "red";
-            var vm = "false";
-        } else {
-            var menu = /^[a-zA-Z ]*$/;
-    
-            var e = menu.test(mn);
-            if (e == false) {
-                document.getElementById('menu').focus();
-                document.getElementById('m1').innerHTML = "Menu name must contain only letters";
+    <script>
+        function validate123() {
+            var mn = document.getElementById('menu').value;
+            var mid = document.getElementById('menuid').value;
+            var price = document.getElementById('price').value;
+            var dec = document.getElementById('decription').value;
+            if (mn == "") {
+                document.getElementById('m1').innerHTML = "Menu Name cannot be empty";
                 document.getElementById('m1').style.color = "red";
                 document.getElementById('menu').style.borderColor = "red";
-                vm = "false";
+                var vm = "false";
             } else {
-                document.getElementById('m1').innerHTML = "";
-                document.getElementById('menu').style.borderColor = "green";
-                vm = "true";
+                var menu = /^[a-zA-Z ]*$/;
+                var e = menu.test(mn);
+                if (e == false) {
+                    document.getElementById('menu').focus();
+                    document.getElementById('m1').innerHTML = "Menu name must contain only letters";
+                    document.getElementById('m1').style.color = "red";
+                    document.getElementById('menu').style.borderColor = "red";
+                    vm = "false";
+                } else {
+                    document.getElementById('m1').innerHTML = "";
+                    document.getElementById('menu').style.borderColor = "green";
+                    vm = "true";
+                }
+            }
+            if (mid == "") {
+                document.getElementById('m2').innerHTML = "Menu ID  cannot be empty";
+                document.getElementById('m2').style.color = "red";
+                document.getElementById('menuid').style.borderColor = "red";
+                var vid = "false";
+            } else {
+                var id = /^[0-9]/;
+                var a = id.test(mid);
+                if (a == false) {
+                    document.getElementById('menuid').focus();
+                    document.getElementById('m2').innerHTML = "Menu ID must contain only numbers";
+                    document.getElementById('m2').style.color = "red";
+                    document.getElementById('menuid').style.borderColor = "red";
+                    vid = "false";
+                } else {
+                    if (mid.length > 7 || mid.length < 7) {
+                        document.getElementById('menuid').focus();
+                        document.getElementById('m2').innerHTML = "Menu ID must contain only 7 digit";
+                        document.getElementById('m2').style.color = "red";
+                        document.getElementById('menuid').style.borderColor = "red";
+                        vid = "false";
+                    } else {
+                        document.getElementById('m2').innerHTML = "";
+                        document.getElementById('menuid').style.borderColor = "green";
+                        vid = "true";
+                    }
+                }
+            }
+
+            if (price == "") {
+                document.getElementById('m3').innerHTML = "Price  cannot be empty";
+                document.getElementById('m3').style.color = "red";
+                document.getElementById('price').style.borderColor = "red";
+                var vpr = "false";
+            } else {
+                var pr = /^[0-9]/;
+                var b = pr.test(price);
+                if (b == false) {
+                    document.getElementById('price').focus();
+                    document.getElementById('m3').innerHTML = "Price must contain only numbers";
+                    document.getElementById('m3').style.color = "red";
+                    document.getElementById('price').style.borderColor = "red";
+                    vpr = "false";
+                } else {
+                    document.getElementById('m3').innerHTML = "";
+                    document.getElementById('price').style.borderColor = "green";
+                    vpr = "true";
+                }
+            }
+            if (dec == "") {
+                document.getElementById('m4').innerHTML = "Description  cannot be empty";
+                document.getElementById('m4').style.color = "red";
+                document.getElementById('decription').style.borderColor = "red";
+                var vd = "false";
+            }
+            else {
+                    document.getElementById('m4').innerHTML = "";
+                    document.getElementById('decription').style.borderColor = "green";
+                    vd = "true";
+                }
+            if (vm == "true" && vid == "true" && vpr == "true" && vd == "true") {
+                return true;
+            } else {
+                return false;
             }
         }
-        if (vm == "true" ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-</script>
+    </script>
     <?php
     include_once("admin_nav.php");
     ?>
-    <br />
-    <br />
     <h1 align="center" style=" color:white;padding-bottom: 10px;" class="p-3 text-warning fst-italic"> New Menu</h1>
-
     <div class=" text-white " style="margin-left: 20%;margin-right:20%;margin-top:3%;margin-bottom:3%">
-
-
         <div style="border: 2px;">
-
             <form onSubmit="return(validate123());">
-
                 <div class="form-group">
                     <label>Menu Name:</label>
                     <input type="text" class="form-control" placeholder="Enter Name" id="menu" name="mn" style="background-color: transparent;color:white">
@@ -85,7 +131,7 @@ background-repeat: no-repeat; background-size: cover;
                 </div>
                 <div class="form-group">
                     <label> Description:</label><br>
-                    <textarea name="dec" id="decription" cols="30" rows="1" class="form-control" style="background-color: transparent;color:white" placeholder="Decription" required></textarea>
+                    <textarea name="dec" id="decription" cols="30" rows="1" class="form-control" style="background-color: transparent;color:white" placeholder="Decription"></textarea>
                     <p id="m4"></p>
                 </div><br>
                 <div class="form-group">
@@ -93,11 +139,10 @@ background-repeat: no-repeat; background-size: cover;
                     <input type="file" class="form-control" name="p_pic" style="background-color: transparent;color:white">
                 </div>
                 <div class="col-12 text-center">
-                    <input type="submit " class="btn btn-warning mt-3" value="Add Menu" name="sub" />
+                    <input type="submit" class="btn btn-warning mt-3" value="Add Menu" />
                 </div>
             </form>
         </div>
-
     </div>
     <?php
     include_once("footer.php");
