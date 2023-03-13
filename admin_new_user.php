@@ -185,8 +185,8 @@ background-repeat: no-repeat; background-size: cover;
 
                     </div>
                     <div class="col-12 text-center">
-  <input type="submit " class="btn btn-warning mt-3" value="Add User" name="sub" />
-  </div>
+                        <input type="submit" class="btn btn-warning mt-3" value="Add User" />
+                    </div>
                 </form>
             </div>
         </div>
