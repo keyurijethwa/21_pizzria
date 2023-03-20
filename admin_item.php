@@ -39,7 +39,8 @@ background-repeat: no-repeat; background-size: cover;
                         <th scope="col">Price</th>
                         <th scope="col">Description</th>
                         <th scope="col">Ingredients</th>
-                        <th>item_pic</th>
+                        <th scope="col">item_pic</th>
+                        <th scope="col">Edit</th>
                         <th scope="col">Remove</th>
                     </tr>
                 </thead>
@@ -52,6 +53,7 @@ background-repeat: no-repeat; background-size: cover;
                         <td>This pizza is so soft made by speacial chef</td>
                         <td>with Tomato,mozrella</td>
                         <td><img src="img/i-1.jpeg" alt="" height="50%" width="50%"></td>
+                        <td><a href="edit_item.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
                         <td scope="row"><i class="fa-solid fa-trash"></i></td>
                     </tr>
                     
