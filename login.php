@@ -1,4 +1,5 @@
 <?php
+include_once("database.php");
 session_start();
 if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
     if (($_SESSION['emailid'] == 'admin@gmail.com')  && ($_SESSION['password'] == 'admin@123A')) {
@@ -130,15 +131,7 @@ if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
                                     </div>
                                 </div>
                         </form>
-                        <?php
-                        if (isset($_POST['login_btn'])) {
-                            $email = $_POST['eid'];
-                            $pass = $_POST['pwd'];
-                            $_SESSION['emailid'] = $email;
-                            $_SESSION['password'] = $pass;
-                        }
-                        ?>
-
+                       
                     </div>
                 </div>
             </div>
@@ -152,4 +145,33 @@ if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
     </html>
 <?php
 }
+?>
+<?php
+
+    if (isset($_POST['login_btn'])) {
+        @$em = $_POST['eid'];
+        @$pwd = $_POST['pwd'];
+        @$pro=mysqli_query($con,"SELECT Profile from users where Email='$em'");
+        $q = "SELECT * from users where Email='$em' and Password='$pwd'";
+        $count = mysqli_num_rows(mysqli_query($con, $q));
+        if ($count == 1) {
+            $_SESSION['emailid'] = $em;
+            $_SESSION['password'] = $pwd;
+    ?>
+            
+<?php
+        } 
+        elseif($em=='admin@gmail.com' && $pwd == 'admin@123A'){
+            $_SESSION['emailid'] = $em;
+            $_SESSION['password'] = $pwd;
+        }
+        else {
+            ?>
+            <script>
+                alert ("Invalid user");
+                </script>
+            <?php
+        }
+    }
+
 ?>
