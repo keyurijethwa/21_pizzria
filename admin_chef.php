@@ -38,6 +38,7 @@ background-repeat: no-repeat; background-size: cover;
                         <th scope="col">Exprience</th>
                         <th scope="col">Specialist</th>
                         <th scope="col">Chef_pic</th>
+                        <th scope="col">Edit</th>
                         <th scope="col">Remove</th>
                     </tr>
                 </thead>
@@ -47,7 +48,8 @@ background-repeat: no-repeat; background-size: cover;
                         <td>3120001</td>
                         <td>2-years</td>
                         <td>Italian Pizza</td>
-                        <td><img src="img/person_1.jpg" alt="" height="50%" width="50%"></td>
+                        <td><img src="img/person_1.jpg" alt="" height="25%" width="25%"></td>
+                        <td><a href="edit_chefs.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
                         <td scope="row"><i class="fa-solid fa-trash"></i></td>
                     </tr>
                     <tr>
@@ -55,7 +57,7 @@ background-repeat: no-repeat; background-size: cover;
                         <td>3120002</td>
                         <td>6-month</td>
                         <td>margherita pizza</td>
-                        <td><img src="img/person_2.jpg" alt="" height="50%" width="50%"></td>
+                        <td><img src="img/person_2.jpg" alt="" height="25%" width="25%"></td>
                         <td scope="row"><i class="fa-solid fa-trash"></i></td>
                     </tr>
                     <tr>
@@ -63,7 +65,7 @@ background-repeat: no-repeat; background-size: cover;
                         <td>3120003</td>
                         <td>1-years</td>
                         <td>Pizza Base</td>
-                        <td><img src="img/person_3.jpg" alt="" height="50%" width="50%"></td>
+                        <td><img src="img/person_3.jpg" alt="" height="25%" width="25%"></td>
                         <td scope="row"><i class="fa-solid fa-trash"></i></td>
                     </tr>
                     <tr>
@@ -71,7 +73,7 @@ background-repeat: no-repeat; background-size: cover;
                         <td>3120004</td>
                         <td>5-years</td>
                         <td>Italian Pizza</td>
-                        <td><img src="img/person_4.jpg" alt="" height="50%" width="50%"></td>
+                        <td><img src="img/person_4.jpg" alt="" height="25%" width="25%"></td>
                         <td scope="row"><i class="fa-solid fa-trash"></i></td>
                     </tr>
                 </tbody>
