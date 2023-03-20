@@ -41,6 +41,7 @@ background-repeat: no-repeat; background-size: cover;
                         <th scope="col">Coupon_code</th>
                         <th scope="col">Discount</th>
                         <th scope="col">Templete</th>
+                        <th scope="col">Edit</th>
                         <th scope="col">Remove</th>
                     </tr>
                 </thead>
@@ -54,7 +55,8 @@ background-repeat: no-repeat; background-size: cover;
                         <td>G48SKL4</td>
                         <td>20%</td>
                         <td><img src="img/offer-1.webp" alt="" height="50%" width="50%"></td>
-                        <td scope="row"><i class="fa-solid fa-trash"></i></td>
+                        <td><a href="edit_offer.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                        <td scope="row"><a href="#"><i class="fa-solid fa-trash"></i></a></td>
                     </tr>
                     
                 </tbody>
