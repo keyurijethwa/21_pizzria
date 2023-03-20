@@ -38,6 +38,7 @@ background-repeat: no-repeat; background-size: cover;
                         <th scope="col">Price</th>
                         <th scope="col">Discription</th>
                         <th scope="col">Photo</th>
+                        <th>Edit</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
@@ -48,6 +49,7 @@ background-repeat: no-repeat; background-size: cover;
                         <td>$20</td>
                         <td>A small river named Duden flows by their place and supplies</td>
                         <td style="height: 10%;width:10%"> <img src="img/pizza-1.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
+                        <td><a href="edit_menu.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
                         <th scope="row"><i class="fa-solid fa-trash"></i></th>
                     </tr>
                     <tr>
