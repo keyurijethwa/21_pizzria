@@ -1,3 +1,8 @@
+<?php
+include_once('database.php');
+$q = "select * from users";
+$result = mysqli_query($con, $q);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,16 +35,20 @@ background-repeat: no-repeat; background-size: cover;
                     <th>Edit</th>
                     <th>Remove</th>
                 </tr>
-                <tr>
-                    <td>Kriti</td>
-                    <td>k@rku.ac.in</td>
-                    <td>2K43H</td>
-                    <td>9328686505</td>
-                    <td><img src="img/p2.jfif" alt="" height="100px" width="100px"> </td>
-                    <td><a href="edit_user.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                    <td><a href="remove_user.php"><i class="fa-solid fa-trash"></i></a></td>
-
-                </tr>
+                <?php
+            while ($b = mysqli_fetch_array($result)) {
+                echo "<b>";
+                echo "<tr>";
+                echo "<td> " . $b[0] . "</td>";
+                echo "<td>" . $b[1] . "</td>";
+                echo "<td>" . $b[2] . "</td>";
+                echo "<td>" . $b[3] . "</td>";
+                echo "<td>" . $b[4] . "</td>";
+                echo "<td> <a href='edit_user.php?email=$b[1]'><i class='fa-regular fa-pen-to-square'></i></a></td>";
+                echo "<td> <a href='remove_user.php?email=$b[1]'><i class='fa-solid fa-trash'></i></a></td>";
+                echo "</b>";
+                echo "</tr>";
+            }?>
             </table>
         </div>
     </div>
