@@ -34,7 +34,7 @@ background-repeat: no-repeat; background-size: cover;
                         <input type="email" name="name" value="k@rku.ac.in" style="background-color: transparent;color:white" readonly>
                     </div>
                 </div>
-                <div class="row text-center">
+                <div class="row text-center mt-5">
                     <div class="col-md-6 col-12">
                         <h4 class="text-white-50">Password:</h4>
                         <input type="password" name="name" value="05FH37" style="background-color: transparent;color:white">
