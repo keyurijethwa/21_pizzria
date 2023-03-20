@@ -19,13 +19,13 @@ background-position: center;
 background-repeat: no-repeat; background-size: cover;
 ">
     <?php
-    include_once('nav.php')
+    include_once('login_nav.php')
   ?>
     <!-- contact -->
     <div class="menu">
         <img src="img/bg_3.jpg" class="img-fluid" alt="...">
         <div class="centered">
-            <h1>CONTACT US</h1>
+            <h1 class="">CONTACT US</h1>
             <a href="home.html">HOME</a> <span> CONTACT US</span>
         </div>
     </div>
@@ -38,7 +38,7 @@ background-repeat: no-repeat; background-size: cover;
                 <div class="col-md-4 contact-info ">
                     <div class="row">
                         <div class="col-md-12 mb-4">
-                            <h1 class="h1">Contact Information</h1>
+                            <h1 class="h1 text-warning">Contact Information</h1>
                         </div>
                         <div class="col-md-12 mb-3">
                             <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
