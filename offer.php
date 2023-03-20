@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,7 @@ background-position: center;
 background-repeat: no-repeat; background-size: cover;
 ">
 <?php
-    include_once('nav.php')
+    include_once('login_nav.php')
   ?>
     <!-- offers -->
     <div class="menu">
