@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  if(isset($_SESSION['emailid']) && isset($_SESSION['password'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +14,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="font/css/all.css">
 </head>
-
 <body style="
 background-image: url('img/bg_4.jpg'); min-height: 500px;
 background-attachment: fixed;
@@ -47,3 +50,13 @@ background-repeat: no-repeat; background-size: cover;
 </body>
 
 </html>
+<?php
+  }
+  else{
+    ?>
+    <script>
+      window.location="login.php";
+    </script>
+    <?php
+  }
+?>
