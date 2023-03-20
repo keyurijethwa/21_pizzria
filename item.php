@@ -39,7 +39,7 @@ background-repeat: no-repeat; background-size: cover;
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ">
-                        <a class="nav-link " href="#Italian">Italian Pizza</a>
+                        <a class="nav-link active" href="#Italian">Italian Pizza</a>
                         <a class="nav-link" href="#Special">Hawaiian Special</a>
                         <a class="nav-link" href="#Hawaiian">Hawaiian Pizza</a>
                         <a class="nav-link " href="#Greek">Greek Pizza</a>
