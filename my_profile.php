@@ -40,7 +40,7 @@ background-repeat: no-repeat; background-size: cover;
                     </a>
             </div>
             </div>
-            <div><a href="#"><input type="button" value="Logout" class="text-white bg-warning"></a></div>
+            <div><a href="logout.php"><input type="button" value="Logout" class="text-white bg-warning"></a></div>
 
         </div>
     </div>
