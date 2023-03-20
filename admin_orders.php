@@ -33,6 +33,8 @@ background-repeat: no-repeat; background-size: cover;
                         <th>Time</th>
                         <th>Date</th>
                         <th>Complete</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,31 +49,10 @@ background-repeat: no-repeat; background-size: cover;
                         <th>2:30am</th>
                         <th>14/02/2023</th>
                         <th>No</th>
+                        <td><a href="edit_order.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                        <td scope="row"><a href="#"><i class="fa-solid fa-trash"></i></a></td>
                     </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>pizza1</td>
-                        <td>10001</td>
-                        <td>Large</td>
-                        <td>cheese</td>
-                        <td>2</td>
-                        <td>Rajkot</td>
-                        <th>2:30am</th>
-                        <th>14/02/2023</th>
-                        <th>No</th>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>pizza2</td>
-                        <td>10001</td>
-                        <td>regular</td>
-                        <td>cheese</td>
-                        <td>1</td>
-                        <td>Rajkot</td>
-                        <th>2:30am</th>
-                        <th>14/02/2023</th>
-                        <th>No</th>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
