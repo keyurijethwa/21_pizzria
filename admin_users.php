@@ -27,8 +27,8 @@ background-repeat: no-repeat; background-size: cover;
                     <th>Password</th>
                     <th>Mobile N0.</th>
                     <th>Profile</th>
-                    <th></th>
-                    <th></th>
+                    <th>Edit</th>
+                    <th>Remove</th>
                 </tr>
                 <tr>
                     <td>Kriti</td>
@@ -36,17 +36,7 @@ background-repeat: no-repeat; background-size: cover;
                     <td>2K43H</td>
                     <td>9328686505</td>
                     <td><img src="img/p2.jfif" alt="" height="100px" width="100px"> </td>
-                    <td><a href="edit_user.php"><input type="button" value="Edit" class="text-bg-warning text-white border-white rounded"></a></td>
-                    <td><a href="remove_user.php"><i class="fa-solid fa-trash"></i></a></td>
-
-                </tr>
-                <tr>
-                <td>Dhruvi</td>
-                    <td>d@rku.ac.in</td>
-                    <td>9U6gU</td>
-                    <td>9328686505</td>
-                    <td><img src="img/p3.jfif" alt="" height="100px" width="100px"> </td>
-                    <td><a href="edit_user.php"><input type="button" value="Edit" class="text-bg-warning text-white border-white rounded"></a></td>
+                    <td><a href="edit_user.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
                     <td><a href="remove_user.php"><i class="fa-solid fa-trash"></i></a></td>
 
                 </tr>
