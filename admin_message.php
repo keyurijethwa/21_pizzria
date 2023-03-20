@@ -49,7 +49,6 @@ background-repeat: no-repeat; background-size: cover;
                     </div>
         </div>
     </div>
-
   <!-- menu end -->
 
   <?php
