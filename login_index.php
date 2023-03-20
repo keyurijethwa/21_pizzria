@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  if(isset($_SESSION['emailid']) && isset($_SESSION['password'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -305,3 +309,13 @@ background-repeat: no-repeat; background-size: cover;">
 </body>
 
 </html>
+<?php
+  }
+  else{
+    ?>
+    <script>
+      window.location="login.php";
+    </script>
+    <?php
+  }
+?>
