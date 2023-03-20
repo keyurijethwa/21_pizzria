@@ -39,7 +39,7 @@ background-repeat: no-repeat; background-size: cover;
         </div>
 
         <div class="row text-white text-center mx-4 my-5">
-            
+                
 
             <div class=" col-12   ">
             <div class="border border-1 p-1 text-warning mt-5"><h3>about</h3></div>
