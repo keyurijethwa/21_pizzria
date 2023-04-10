@@ -1,9 +1,10 @@
 <?php
+include_once('database.php');
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $first_part = $components[3];
-echo $first_part;
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ echo $first_part;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pizzria</title>
     <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="font/css/all.css">
@@ -33,11 +34,11 @@ echo $first_part;
 <body>
     
 
-<div class="container">
+<div class="container mb-5">
     <div class="row ">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark  fixed-top">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark  fixed-top ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img class="logo" src="img/logo.png" alt=""></a>
+                <a class="navbar-brand" href="admin_index.php"><img class="logo" src="img/logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon text"></span>
                 </button>
