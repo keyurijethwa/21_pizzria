@@ -1,10 +1,11 @@
 <!-- navbar -->
 <?php
+include_once("database.php");   
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
-$first_part = $components[2];
-echo $first_part;
+$first_part = $components[3];
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ echo $first_part;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pizzria</title>
     <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="font/css/all.css">
@@ -34,7 +35,7 @@ echo $first_part;
 
 <div class="e my-5">
     <div class="row ">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark  fixed-top">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top ">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img class="logo" src="img/logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -43,15 +44,11 @@ echo $first_part;
                 <div class="collapse text navbar-collapse  justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "offer.php") {
+                            <a class="nav-link <?php if ($first_part == "login_offer.php") {
                                                     echo "active1";
-                                                } ?>" href="offer.php"> Offer</a>
+                                                } ?>" href="login_offer.php"> Offer</a>
                         </li>
-                        <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "contact.php") {
-                                                    echo "active1";
-                                                } ?>" href="contact.php"> Contact Us</a>
-                        </li>
+                        
 
                         <li class="nav-item px-3">
                             <a class="nav-link <?php if ($first_part == "item.php") {
@@ -62,6 +59,11 @@ echo $first_part;
                             <a class="nav-link <?php if ($first_part == "my_order.php") {
                                                     echo "active1";
                                                 } ?>" href="my_order.php">My Order</a>
+                        </li>
+                        <li class="nav-item px-3">
+                            <a class="nav-link <?php if ($first_part == "login_contact.php") {
+                                                    echo "active1";
+                                                } ?>" href="login_contact.php"> Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -85,6 +87,7 @@ echo $first_part;
                     <div class="mx-3 nav-item"><a class="nav-link  <?php if ($first_part == "my_profile.php") {
                                                     echo "active1";
                                                 } ?>" href="my_profile.php"><i class="fa-solid fa-user fa-2xl icon"></i></a></div>
+                                                <div><a href="logout.php">Logout</a></div>
                 </form>
 
             </div>
