@@ -11,7 +11,7 @@ if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
     } else {
     ?>
         <script>
-            window.location = 'login_index.php';
+            window.location = 'login_offer.php';
         </script>
     <?php
     }
@@ -127,7 +127,7 @@ if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
                                         <a href="registration.php">Don't have account</a>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <a href="#">Forgot Password</a>
+                                        <a href="forget_password_form.php">Forgot Password</a>
                                     </div>
                                 </div>
                         </form>
@@ -152,7 +152,7 @@ if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
         @$em = $_POST['eid'];
         @$pwd = $_POST['pwd'];
         @$pro=mysqli_query($con,"SELECT Profile from users where Email='$em'");
-        $q = "SELECT * from users where Email='$em' and Password='$pwd'";
+        $q = "SELECT * from users where Email='$em' and Password='$pwd' and Status='Active'";
         $count = mysqli_num_rows(mysqli_query($con, $q));
         if ($count == 1) {
             $_SESSION['emailid'] = $em;
