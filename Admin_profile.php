@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +38,7 @@ background-repeat: no-repeat; background-size: cover;
             <div class="d-block mx-3 text-center">
                 <div class="fs-2 text-white"> Damien Green</div>
                 <div class="fs-4 text-muted">damien12@gmail.com</div>
-                <div><a href="#"><input type="button" value="Logout"></a></div>
+                <div><a href="logout.php"><input type="button" value="Logout" class="btn btn-warning"></a></div>
             </div>
         </div>
 
@@ -59,3 +63,12 @@ background-repeat: no-repeat; background-size: cover;
 </body>
 
 </html>
+<?php
+} else {
+?>
+    <script>
+        window.location = "login.php";
+    </script>
+<?php
+}
+?>
