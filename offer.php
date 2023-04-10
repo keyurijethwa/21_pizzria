@@ -1,5 +1,9 @@
 
-
+<?php
+include_once("database.php");
+    $q = "SELECT * FROM offers WHERE Status='Active'";
+    $result = mysqli_query($con, $q);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +22,7 @@ background-position: center;
 background-repeat: no-repeat; background-size: cover;
 ">
 <?php
-    include_once('login_nav.php')
+    include_once('guest_nav.php')
   ?>
     <!-- offers -->
     <div class="menu">
@@ -29,24 +33,33 @@ background-repeat: no-repeat; background-size: cover;
         </div>
     </div>
 
+    <h1 class="fs-1 text-warning p-5 fst-italic text-center">Best offers for you</h1>
+    <?php
+    while ($a = mysqli_fetch_array($result)) {
+    ?>
+
     <div class="">
             <div class="container text-white text-center" >
-        <h1 class="fs-1 text-warning p-5 fst-italic">Best offers for you</h1>
         <div class="row mb-5">
             <div class="col-md-6 col-12">
-                <img src="img/offer-1.webp" alt="">
+                <img src="offer_image/<?php echo $a[7]?>" alt="">
             </div>
             <div class="col-md-6 col-12 ">
                 <div class="d-block justify-content-center">
-                <P class="fs-4"> Week-End offer</P>
-                    <P class="fs-4"> Date:14-15 apr ,2023</P>
-                    <P class="fs-4">  Coupon Code:STR903JK8</P>
-                    <P class="fs-4"> Discount:50%</P>
+                <h3 class="fs-4 bg-warning rounded p-2"> <?php echo $a[0]?></h3>
+                    <P class="fs-4"> Offer Start:<?php echo $a[2]?></P>
+                    <P class="fs-4"> Offer End:<?php echo $a[3]?></P>
+                    <P class="fs-4">  Coupon Code:<?php echo $a[5]?></P>
+                    <P class="fs-4"> Discount:<?php echo $a[4]?></P>
+                    <P class="fs-4"> <?php echo $a[6]?></P>
                 </div>
             </div>
         </div>
     </div>
     </div>
+    <?php
+    }
+    ?>
     <!-- offer end -->
     <?php
   include_once('footer.php');
