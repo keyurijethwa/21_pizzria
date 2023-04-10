@@ -2,6 +2,10 @@
 include_once("guest_nav.php");
 
 ?>
+<?php
+include_once("database.php");
+session_start();
+?>
 <script type="text/javascript">
   function validate123()
 {
@@ -185,7 +189,7 @@ background-repeat: no-repeat; background-size: cover;
 <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12" style="border: 2px;">
 	
 
-	<form onSubmit="return(validate123());" method="post" action="registration.php" enctype="multipart/form-data">
+	<form onSubmit="return(validate123());" method="post" action="registor_insert_data.php" enctype="multipart/form-data">
 
 		<div class="form-group">
     <label for="email"> Name:</label>
@@ -229,54 +233,6 @@ background-repeat: no-repeat; background-size: cover;
 
 </div>
 </body>
-
-<?php
-include_once("database.php");
-if (isset($_POST['btn'])) {
-    @$name = $_POST['fn1'];
-    @$email = $_POST['eid'];
-    @$pass = $_POST['pwd'];
-    @$cpass = $_POST['repwd'];
-    @$phone = $_POST['mobile'];
-    @$image = $_FILES['image']['name'];
-    @$image_size = $_FILES['image']['size'];
-    @$image_tmp_name = $_FILES['image']['tmp_name'];
-    @$image_folder = 'Profile/' . $image;
-    echo $name;
-    @$select = mysqli_query($con, "SELECT * FROM `users` WHERE Email = '$email' or Password = '$pass'") or die('query failed');
-    @$q = "INSERT INTO users VALUES('$name', '$email','$pass','$phone', '$image')";
-    if (mysqli_num_rows($select) == 1) {
-        ?>
-        <script>alert ("User already exist");</script>
-        <?php
-    } else {
-        if ($pass != $cpass) {
-            ?>
-            <script>alert ("Confirm password not matched!");</script>
-            <?php
-        } elseif ($image_size > 2000000) {
-            ?>
-            <script>alert ("image size is too large!");</script>
-            <?php
-        } else {
-            $insert = mysqli_query($con, $q) or die('query failed');
-
-            if ($insert) {
-                move_uploaded_file($image_tmp_name, $image_folder);
-                ?>
-                <script>alert ("registered successfully!");
-                window.location="login.php";
-            </script>
-                <?php
-            } else {
-            ?>
-                <script>alert ("registeration failed!");</script>
-            <?php
-            }
-        }
-    }
-}
-?>
 <?php
 include("footer.php");
 ?>
