@@ -1,3 +1,8 @@
+<?php
+include_once("database.php");
+$q = "SELECT * FROM chefs WHERE Status='Active'";
+$result = mysqli_query($con, $q);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,9 +23,9 @@ background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat; background-size: cover;
 ">
-<?php
-    include_once('nav.php')
-  ?>
+    <?php
+    include_once('guest_nav.php')
+    ?>
     <!-- chefs -->
 
     <div class="menu">
@@ -36,64 +41,27 @@ background-repeat: no-repeat; background-size: cover;
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
                     <h2 class="mb-4">Our Chef</h2>
-                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-                    <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and
-                        Consonantia, there live the blind texts.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff ">
-                        <div class="text-center"> <img class="rounded-circle" src="img/person_1.jpg" alt=""></div>
-                        <div class="info text-center">
-                            <h3><a href="teacher-single.html">Tom Smith</a></h3>
-                            <span class="position">Italian Pizza Specialist</span>
-                            <div class="text">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
+                <?php
+                while ($a = mysqli_fetch_array($result)) {
+                ?>
+                    <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
+                        <div class="staff ">
+                            <div class="text-center"> <img class="rounded-circle" src="Chefs_image/<?php echo $a[4]; ?>" alt=""></div>
+                            <div class="info text-center">
+                                <h3><a href="teacher-single.html"><?php echo $a[0]; ?></a></h3>
+                                <span class="position"><?php echo $a[3]; ?> Specialist</span>
+                                <div class="text">
+                                    <p><?php echo $a[0]; ?> chef has a <?php echo $a[2]; ?> exprice in making <?php echo $a[3]; ?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="text-center"> <img class="rounded-circle" src="img/person_2.jpg" alt=""></div>
-                        <div class="info text-center">
-                            <h3><a href="teacher-single.html">Mark Wilson</a></h3>
-                            <span class="position">margherita pizza Specialist</span>
-                            <div class="text">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="text-center"> <img class="rounded-circle" src="img/person_3.jpg" alt=""></div>
-                        <div class="info text-center">
-                            <h3><a href="teacher-single.html">Patrick Jacobson</a></h3>
-                            <span class="position">Pizza Base</span>
-                            <div class="text">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
-                    <div class="staff">
-                        <div class="text-center"> <img class="rounded-circle" src="img/person_4.jpg" alt=""></div>
-                        <div class="info text-center">
-                            <h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
-                            <span class="position">Italian Pizza</span>
-                            <div class="text">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -149,8 +117,8 @@ background-repeat: no-repeat; background-size: cover;
     <!-- chef end -->
 
     <?php
-  include_once('footer.php');
-  ?>
+    include_once('footer.php');
+    ?>
 </body>
 
 </html>
