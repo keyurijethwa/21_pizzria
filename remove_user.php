@@ -1,19 +1,13 @@
 <?php
-    include_once("database.php");
-    $em=$_GET['email']; 
-    $q="DELETE FROM users WHERE Email='$em'" ;
-    $q = "delete from users where email='$em'";
+include_once('admin_nav.php');
+$em = $_REQUEST['em'];
+$q = "update users set Status='Delete' where email='$em'";
 if (mysqli_query($con, $q)) {
-?>
-    <script>
-        window.location= "admin_users.php";
-    </script>
-<?php
+    $_SESSION['success'] = 'User Deleted Successfully';
 } else {
-?>
-    <script>
-        alert ("Not delete data try again");
-    </script>
-<?php
+    $_SESSION['error'] = 'User Deletion Failed';
 }
 ?>
+<script>
+    window.location = "admin_users.php";
+</script>
