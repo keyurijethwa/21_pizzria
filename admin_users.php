@@ -3,6 +3,10 @@ include_once('database.php');
 $q = "select * from users";
 $result = mysqli_query($con, $q);
 ?>
+<?php
+session_start();
+if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +36,10 @@ background-repeat: no-repeat; background-size: cover;
                     <th>Password</th>
                     <th>Mobile N0.</th>
                     <th>Profile</th>
+                    <th>Status</th>
                     <th>Edit</th>
-                    <th>Remove</th>
+                    <th>Delete</th>
+                    <th>Activation</th>
                 </tr>
                 <?php
             while ($b = mysqli_fetch_array($result)) {
@@ -43,9 +49,25 @@ background-repeat: no-repeat; background-size: cover;
                 echo "<td>" . $b[1] . "</td>";
                 echo "<td>" . $b[2] . "</td>";
                 echo "<td>" . $b[3] . "</td>";
-                echo "<td>" . $b[4] . "</td>";
+                echo "<td><img src='Profile/".$b[4]."' height='25%' width='25%'></td>";
+                echo "<td>" . $b[5] . "</td>";
                 echo "<td> <a href='edit_user.php?email=$b[1]'><i class='fa-regular fa-pen-to-square'></i></a></td>";
-                echo "<td> <a href='remove_user.php?email=$b[1]'><i class='fa-solid fa-trash'></i></a></td>";
+                echo "<td> <a href='remove_user.php?em=$b[1]'><i class='fa-solid fa-trash'></i></a></td>";
+            if ($b[5] == "Active") { ?>
+                <td> <a href="admin_deactivate_user.php?em=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Deactivate</button></a>
+                </td>
+            <?php
+            } else if ($b[5] == "Not Active") {
+            ?>
+                <td> <a href="admin_activate_user.php?em=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Activate</button></a>
+                </td>
+            <?php
+            } else if($b[5]=="Delete") {
+            ?>
+                <td> <a href="admin_reactivate_deleted_user.php?em=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Reactivate</button></a>
+                </td>
+            <?php
+            }
                 echo "</b>";
                 echo "</tr>";
             }?>
@@ -57,3 +79,12 @@ background-repeat: no-repeat; background-size: cover;
     ?>
 </body>
 </html>
+<?php
+} else {
+?>
+    <script>
+        window.location = "login.php";
+    </script>
+<?php
+}
+?>
