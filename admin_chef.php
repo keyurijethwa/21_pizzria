@@ -1,4 +1,12 @@
-
+<?php
+include_once('database.php');
+$q = "select * from chefs";
+$result = mysqli_query($con, $q);
+?>
+<?php
+session_start();
+if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,8 +34,8 @@ background-repeat: no-repeat; background-size: cover;
   <!-- menu  -->
  
   <div class="container text-white ">
-    
-        <h1 class="text-center text-warning mt-5 p-4 fst-italic">Chefs</h1>
+  <h1 class="mt-5 p-5 text-center text-warning fst-italic">Chefs</h1>
+
         <a href="admin_new_chef.php"><button class="text-white bg-warning rounded fw-bold">+ New Chef</button></a>
         <div class="table-responsive">
             <table class="table text-white my-sm-5">
@@ -38,44 +46,45 @@ background-repeat: no-repeat; background-size: cover;
                         <th scope="col">Exprience</th>
                         <th scope="col">Specialist</th>
                         <th scope="col">Chef_pic</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Edit</th>
-                        <th scope="col">Remove</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Activate</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+            while ($b = mysqli_fetch_array($result)) {
+                ?>
                     <tr>
-                        <td>Tom Smith</td>
-                        <td>3120001</td>
-                        <td>2-years</td>
-                        <td>Italian Pizza</td>
-                        <td><img src="img/person_1.jpg" alt="" height="25%" width="25%"></td>
-                        <td><a href="edit_chefs.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                        <td scope="row"><i class="fa-solid fa-trash"></i></td>
+                        <td><?php echo $b[0]; ?></td>
+                        <td><?php echo $b[1]; ?></td>
+                        <td><?php echo $b[2]; ?></td>
+                        <td><?php echo $b[3]; ?></td>
+                        <td style="height: 10%;width:10%"> <img src="Chefs_image/<?php echo $b[4]; ?>" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
+                        <td><?php echo $b[5]; ?></td>
+                        <td><a href="edit_chefs.php?id=<?php echo $b[1]; ?>"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                        <td><a href="remove_chef.php?id=<?php echo $b[1]; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                       <?php if ($b[5] == "Active") {?>
+                <td> <a href="admin_deactivate_chef.php?id=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Deactivate</button></a>
+                </td>
+            <?php
+            } else if ($b[5] == "Not Active") {
+            ?>
+                <td> <a href="admin_activate_chef.php?id=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Activate</button></a>
+                </td>
+            <?php
+            } else if($b[5]=="Delete") {
+            ?>
+                <td> <a href="admin_reactivate_deleted_chef.php?id=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Reactivate</button></a>
+                </td>
+            <?php
+            }
+            ?>
                     </tr>
-                    <tr>
-                        <td>Mark Wilson</td>
-                        <td>3120002</td>
-                        <td>6-month</td>
-                        <td>margherita pizza</td>
-                        <td><img src="img/person_2.jpg" alt="" height="25%" width="25%"></td>
-                        <td scope="row"><i class="fa-solid fa-trash"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Patrick Jacobson</td>
-                        <td>3120003</td>
-                        <td>1-years</td>
-                        <td>Pizza Base</td>
-                        <td><img src="img/person_3.jpg" alt="" height="25%" width="25%"></td>
-                        <td scope="row"><i class="fa-solid fa-trash"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Ivan Dorchsner</td>
-                        <td>3120004</td>
-                        <td>5-years</td>
-                        <td>Italian Pizza</td>
-                        <td><img src="img/person_4.jpg" alt="" height="25%" width="25%"></td>
-                        <td scope="row"><i class="fa-solid fa-trash"></i></td>
-                    </tr>
+                    <?php
+            }
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -89,3 +98,12 @@ background-repeat: no-repeat; background-size: cover;
 </body>
 
 </html>
+<?php
+} else {
+?>
+    <script>
+        window.location = "login.php";
+    </script>
+<?php
+}
+?>
