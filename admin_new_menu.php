@@ -113,7 +113,7 @@ background-repeat: no-repeat; background-size: cover;
     <h1 align="center" style=" color:white;padding-bottom: 10px;" class="p-3 text-warning fst-italic"> New Menu</h1>
     <div class=" text-white " style="margin-left: 20%;margin-right:20%;margin-top:3%;margin-bottom:3%">
         <div style="border: 2px;">
-            <form onSubmit="return(validate123());">
+            <form onSubmit="return(validate123());" action="admin_new_menu.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Menu Name:</label>
                     <input type="text" class="form-control" placeholder="Enter Name" id="menu" name="mn" style="background-color: transparent;color:white">
@@ -136,10 +136,10 @@ background-repeat: no-repeat; background-size: cover;
                 </div><br>
                 <div class="form-group">
                     <label>Photo:</label>
-                    <input type="file" class="form-control" name="p_pic" style="background-color: transparent;color:white">
+                    <input type="file" class="form-control" name="image" style="background-color: transparent;color:white">
                 </div>
                 <div class="col-12 text-center">
-                    <input type="submit" class="btn btn-warning mt-3" value="Add Menu" />
+                    <input type="submit" class="btn btn-warning mt-3" value="Add Menu" name="btn_submit"/>
                 </div>
             </form>
         </div>
@@ -150,3 +150,40 @@ background-repeat: no-repeat; background-size: cover;
 </body>
 
 </html>
+<?php
+include_once("database.php");
+
+if (isset($_POST['btn_submit'])) {
+    @$menu_name = $_POST['mn'];
+    @$menu_id = $_POST['mid'];
+    @$price = $_POST['pri'];
+    @$dec = $_POST['dec'];
+    @$image = $_FILES['image']['name'];
+    @$image_size = $_FILES['image']['size'];
+    @$image_tmp_name = $_FILES['image']['tmp_name'];
+    @$image_folder = 'Menu_image/' . $image;
+    @$select = mysqli_query($con, "SELECT * FROM `menu` WHERE Menu_id = '$menu_id'") or die('query failed');
+    @$q = "INSERT INTO menu VALUES('$menu_name', '$menu_id','$price','$dec', '$image','Active')";
+   
+    if (mysqli_num_rows($select) == 1) {
+        ?>
+        <script>alert ("Menu already exist");</script>
+        <?php
+    } else {
+            $insert = mysqli_query($con, $q) or die('query failed');
+
+            if ($insert) {
+                move_uploaded_file($image_tmp_name, $image_folder);
+                ?>
+                <script>alert ("Added menu successfully!");
+                window.location="admin_menu.php";
+            </script>
+                <?php
+            } else {
+            ?>
+                <script>alert ("failed!");</script>
+            <?php
+            }
+        }
+    }
+?>
