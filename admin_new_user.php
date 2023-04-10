@@ -1,6 +1,9 @@
 <?php
-include_once("admin_nav.php");
+session_start();
 
+?>
+<?php
+include_once("admin_nav.php");
 ?>
 <script type="text/javascript">
     function validate123() {
@@ -147,7 +150,7 @@ background-repeat: no-repeat; background-size: cover;
         <h1 align="center" style=" color:white;padding-bottom: 10px;" class="p-3 text-warning">New User</h1>
         <div style="border: 2px;">
             <div style="margin-left: 20%;margin-right:20%;margin-top:3%;margin-bottom:3%">
-                <form onSubmit="return(validate123());">
+                <form onSubmit="return(validate123());" method="post" action="admin_new_user.php" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="email"> Name:</label>
@@ -181,11 +184,11 @@ background-repeat: no-repeat; background-size: cover;
 
                     <div class="form-group">
                         <label for="pwd">Profile Picture:</label>
-                        <input type="file" class="form-control" name="p_pic" style="background-color: transparent;color:white">
+                        <input type="file" class="form-control" name="image" style="background-color: transparent;color:white" accept="image/jpg, image/jpeg, image/png" required>
 
                     </div>
                     <div class="col-12 text-center">
-                        <input type="submit" class="btn btn-warning mt-3" value="Add User" />
+                        <input type="submit" class="btn btn-warning mt-3" value="Add User" name="btn"/>
                     </div>
                 </form>
             </div>
@@ -193,6 +196,53 @@ background-repeat: no-repeat; background-size: cover;
 
     </div>
 </body>
+<?php
+include_once("database.php");
+if (isset($_POST['btn'])) {
+    @$name = $_POST['fn1'];
+    @$email = $_POST['eid'];
+    @$pass = $_POST['pwd'];
+    @$cpass = $_POST['repwd'];
+    @$phone = $_POST['mobile'];
+    @$image = $_FILES['image']['name'];
+    @$image_size = $_FILES['image']['size'];
+    @$image_tmp_name = $_FILES['image']['tmp_name'];
+    @$image_folder = 'Profile/' . $image;
+    echo $name;
+    @$select = mysqli_query($con, "SELECT * FROM `users` WHERE Email = '$email' or Password = '$pass'") or die('query failed');
+    @$q = "INSERT INTO users VALUES('$name', '$email','$pass','$phone', '$image')";
+    if (mysqli_num_rows($select) == 1) {
+        ?>
+        <script>alert ("User already exist");</script>
+        <?php
+    } else {
+        if ($pass != $cpass) {
+            ?>
+            <script>alert ("Confirm password not matched!");</script>
+            <?php
+        } elseif ($image_size > 2000000) {
+            ?>
+            <script>alert ("image size is too large!");</script>
+            <?php
+        } else {
+            $insert = mysqli_query($con, $q) or die('query failed');
+
+            if ($insert) {
+                move_uploaded_file($image_tmp_name, $image_folder);
+                ?>
+                <script>alert ("Added user successfully!");
+                window.location="admin_users.php";
+            </script>
+                <?php
+            } else {
+            ?>
+                <script>alert ("failed!");</script>
+            <?php
+            }
+        }
+    }
+}
+?>
 <?php
 include("footer.php");
 ?>
