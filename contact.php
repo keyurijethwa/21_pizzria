@@ -1,3 +1,6 @@
+<?php
+include_once("database.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +22,7 @@ background-position: center;
 background-repeat: no-repeat; background-size: cover;
 ">
     <?php
-    include_once('login_nav.php')
+    include_once('guest_nav.php')
   ?>
     <!-- contact -->
     <div class="menu">
@@ -56,31 +59,31 @@ background-repeat: no-repeat; background-size: cover;
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-6 ">
-                    <form action="#" class="contact-form">
+                    <form action="contact.php" method="post"  class="contact-form">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="pb-4 form-floating">
-                                    <input type="text" class="form-control border-top-0 border-end-0 border-start-0 " placeholder="Your Name" id="floatingInput" style="background-color: transparent;color:white;">
+                                    <input type="text" class="form-control border-top-0 border-end-0 border-start-0 " placeholder="Your Name" id="floatingInput" name="name" style="background-color: transparent;color:white;">
                                     <label for="floatingInput">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating pb-4 ">
-                                    <input type="text" class="form-control border-top-0 border-end-0 border-start-0" id="floatingInput1" placeholder="Your Email" style="background-color: transparent;color:white">
+                                    <input type="text" class="form-control border-top-0 border-end-0 border-start-0" id="floatingInput1" placeholder="Your Email"  name="email" style="background-color: transparent;color:white">
                                     <label for="floatingInput1">Your Email</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-floating pb-4">
-                            <input type="text" class="form-control border-top-0 border-end-0 border-start-0" id="floatingInput2" placeholder="Subject" style="background-color: transparent;color:white">
+                            <input type="text" class="form-control border-top-0 border-end-0 border-start-0" id="floatingInput2" placeholder="Subject" name="subject" style="background-color: transparent;color:white">
                             <label for="floatingInput2">Subject</label>
                         </div>
                         <div class="form-floating pb-4">
-                            <textarea cols="30" rows="7"  id="floatingInput3" class="form-control border-top-0 border-end-0 border-start-0" placeholder="Message" style="background-color: transparent;color:white"></textarea>
+                            <textarea cols="30" rows="7"  id="floatingInput3" class="form-control border-top-0 border-end-0 border-start-0" placeholder="Message" name="message" style="background-color: transparent;color:white"></textarea>
                             <label for="floatingInput3">Message</label>
                         </div>
                         <div class="form-group pb-4">
-                            <input type="submit" value="Send Message" class="btn btn-warning py-3 px-5 text-white" >
+                            <input type="submit" value="Send Message" class="btn btn-warning py-3 px-5 text-white" name="btn">
                         </div>
                     </form>
                 </div>
@@ -95,3 +98,24 @@ background-repeat: no-repeat; background-size: cover;
 </body>
 
 </html>
+
+<?php
+if(isset($_POST['btn'])){
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $subject=$_POST['subject'];
+    $message=$_POST['message'];
+    $q="INSERT INTO contact values('$name','$email','$subject','$message')";
+    $result=mysqli_query($con,$q);
+    if($result){
+        ?>
+        <script>alert("send your message successfully!");</script>
+        <?php
+    }
+    else{
+        ?>
+        <script>alert("your message is not send");</script>
+        <?php
+    }
+}
+?>
