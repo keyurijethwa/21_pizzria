@@ -1,4 +1,12 @@
-
+<?php
+include_once('database.php');
+$q = "select * from menu";
+$result = mysqli_query($con, $q);
+?>
+<?php
+session_start();
+if (isset($_SESSION['emailid']) && isset($_SESSION['password'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,81 +41,50 @@ background-repeat: no-repeat; background-size: cover;
             <table class="table text-white my-sm-5">
                 <thead>
                     <tr style="background-color: #ffc107;">
-                    <th scope="col">Menu_name</th>
-                        <th scope="col">Menu_id</th>
+                    <th scope="col">Menu Name</th>
+                        <th scope="col">Menu Id</th>
                         <th scope="col">Price</th>
                         <th scope="col">Discription</th>
                         <th scope="col">Photo</th>
+                        <th>Status</th>
                         <th>Edit</th>
                         <th>Remove</th>
+                        <th>Activation</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+            while ($b = mysqli_fetch_array($result)) {
+                ?>
                     <tr>
-                        <td>Italian Pizza </td>
-                        <td>1120001</td>
-                        <td>$20</td>
-                        <td>A small river named Duden flows by their place and supplies</td>
-                        <td style="height: 10%;width:10%"> <img src="img/pizza-1.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
-                        <td><a href="edit_menu.php"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                        <th scope="row"><i class="fa-solid fa-trash"></i></th>
+                        <td><?php echo $b[0]; ?></td>
+                        <td><?php echo $b[1]; ?></td>
+                        <td><?php echo $b[2]; ?></td>
+                        <td><?php echo $b[3]; ?></td>
+                        <td style="height: 10%;width:10%"> <img src="Menu_image/<?php echo $b[4]; ?>" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
+                        <td><?php echo $b[5]; ?></td>
+                        <td><a href="edit_menu.php?id=<?php echo $b[1]; ?>"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                        <td><a href="remove_menu.php?id=<?php echo $b[1]; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                       <?php if ($b[5] == "Active") {?>
+                <td> <a href="admin_deactivate_menu.php?id=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Deactivate</button></a>
+                </td>
+            <?php
+            } else if ($b[5] == "Not Active") {
+            ?>
+                <td> <a href="admin_activate_menu.php?id=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Activate</button></a>
+                </td>
+            <?php
+            } else if($b[5]=="Delete") {
+            ?>
+                <td> <a href="admin_reactivate_deleted_menu.php?id=<?php echo $b[1]; ?>"><button class="btn btn-warning" style="width:100px">Reactivate</button></a>
+                </td>
+            <?php
+            }
+            ?>
                     </tr>
-                    <tr>
-                        <td>Hawaiian Pizza</td>
-                        <td>1120002</td>
-                        <td>$20</td>
-                        <td>A small river named Duden flows by their place and supplies</td>
-                        <td style="height: 10%;width:10%"> <img src="img/pizza-2.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
-                        <th scope="row"><i class="fa-solid fa-trash"></i></th>                    
-                    </tr>
-                    <tr>
-                        <td>Greek Pizza</td>
-                        <td>1120003</td>
-                        <td>$20</td>
-                        <td>A small river named Duden flows by their place and supplies</td>
-                        <td style="height: 10%;width:10%"> <img src="img/pizza-3.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
-                        <th scope="row"><i class="fa-solid fa-trash"></i></th>
-                    </tr>
-                    <tr>
-                        <td>Bacon Crispy Thins</td>
-                        <td>1120004</td>
-                        <td>$20</td>
-                        <td>A small river named Duden flows by their place and supplies</td>
-                        <td style="height: 10%;width:10%"> <img src="img/pizza-4.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
-                        <th scope="row"><i class="fa-solid fa-trash"></i></th>
-                    </tr>
-                    <tr>
-                        <td>Hawaiian Special</td>
-                        <td>1120005</td>
-                        <td>$20</td>
-                        <td>A small river named Duden flows by their place and supplies</td>
-                        <td style="height: 10%;width:10%"> <img src="img/pizza-5.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
-                        <th scope="row"><i class="fa-solid fa-trash"></i></th>
-                    </tr>
-                    <tr>
-                        <td>Ultimate Overload</td>
-                        <td>1120006</td>
-                        <td>$20</td>
-                        <td>A small river named Duden flows by their place and supplies</td>
-                        <td style="height: 10%;width:10%"> <img src="img/pizza-6.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
-                        <th scope="row"><i class="fa-solid fa-trash"></i></th>
-                    </tr>
-                    <tr>
-                        <td>Bacon Pizza</td>
-                        <td>1120007</td>
-                        <td>$20</td>
-                        <td>A small river named Duden flows by their place and supplies</td>
-                        <td style="height: 10%;width:10%"> <img src="img/pizza-7.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
-                        <th scope="row"><i class="fa-solid fa-trash"></i></th>
-                    </tr>
-                    <tr>
-                        <td>Ham &amp; Pineapple</td>
-                        <td>1120008</td>
-                        <td>$20</td>
-                        <td>A small river named Duden flows by their place and supplies</td>
-                        <td style="height: 10%;width:10%"> <img src="img/pizza-8.jpg" alt="" class="rounded-circle" style="height: 50%;width:50%"></td>
-                        <th scope="row"><i class="fa-solid fa-trash"></i></th>
-                    </tr>
+                   <?php
+            }
+                   ?>
                 </tbody>
             </table>
         </div>
@@ -121,3 +98,12 @@ background-repeat: no-repeat; background-size: cover;
 </body>
 
 </html>
+<?php
+} else {
+?>
+    <script>
+        window.location = "login.php";
+    </script>
+<?php
+}
+?>
