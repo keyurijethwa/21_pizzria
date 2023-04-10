@@ -1,3 +1,7 @@
+<?php
+  include_once("database.php");
+?>
+
 <script>
   function validate123() {
     var cn = document.getElementById('cname').value;
@@ -107,7 +111,7 @@ background-repeat: no-repeat; background-size: cover;
 
     <div style="border: 2px;">
 
-      <form onSubmit="return(validate123());">
+      <form onSubmit="return(validate123());" method="post" action="admin_new_chef.php" enctype="multipart/form-data">
 
         <div class="form-group">
           <label for="name">Chef Name:</label>
@@ -135,10 +139,10 @@ background-repeat: no-repeat; background-size: cover;
 
         <div class="form-group">
           <label for="pwd">photo:</label>
-          <input type="file" class="form-control" name="p_pic" style="background-color: transparent;color:white">
+          <input type="file" class="form-control" name="image" style="background-color: transparent;color:white">
         </div>
         <div class="col-12 text-center">
-          <input type="submit" class="btn btn-warning mt-3" value="Add Chef" name="sub" />
+          <input type="submit" class="btn btn-warning mt-3" value="Add Chef" name="btn_submit" />
         </div>
       </form>
     </div>
@@ -147,4 +151,39 @@ background-repeat: no-repeat; background-size: cover;
 </body>
 <?php
 include("footer.php");
+
+if (isset($_POST['btn_submit'])) {
+    @$chef_name = $_POST['cn1'];
+    @$chef_id = $_POST['cid1'];
+    @$ex = $_POST['ex1'];
+    @$spe = $_POST['sp1'];
+  
+    @$image = $_FILES['image']['name'];
+    @$image_size = $_FILES['image']['size'];
+    @$image_tmp_name = $_FILES['image']['tmp_name'];
+    @$image_folder = 'Chefs_image/' . $image;
+    @$select = mysqli_query($con, "SELECT * FROM `chefs` WHERE chef_id = '$chef_id'") or die('query failed');
+    @$q = "INSERT INTO chefs VALUES('$chef_name', '$chef_id','$ex','$spe', '$image','Active')";
+  
+    if (mysqli_num_rows($select) == 1) {
+        ?>
+        <script>alert ("offer already exist");</script>
+        <?php
+    } else {
+            $insert = mysqli_query($con, $q) or die('query failed');
+
+            if ($insert) {
+                move_uploaded_file($image_tmp_name, $image_folder);
+                ?>
+                <script>alert ("Added offer successfully!");
+                window.location="admin_offer.php";
+            </script>
+                <?php
+            } else {
+            ?>
+                <script>alert ("failed!");</script>
+            <?php
+            }
+        }
+    }
 ?>
