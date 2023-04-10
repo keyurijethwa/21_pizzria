@@ -5,7 +5,7 @@
         session_destroy();
         ?>
         <script>
-            window.location="guest_index.php";
+            window.location="login.php";
         </script>
         <?php
     }
