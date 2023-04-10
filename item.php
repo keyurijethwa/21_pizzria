@@ -1,3 +1,10 @@
+<?php
+include_once("database.php");
+$q = "SELECT * FROM item WHERE Status='Active'and menu_id=1120001";
+$result = mysqli_query($con, $q);
+$q1 = "SELECT * FROM item WHERE Status='Active'and menu_id=1120005";
+$result1 = mysqli_query($con, $q1);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,92 +35,93 @@ background-repeat: no-repeat; background-size: cover;
     include_once('login_nav.php');
     ?>
 
-    <div class="container  ">
+    <div class="container  mb-5">
         <!-- nav -->
-
-        <nav class="navbar navbar-expand-lg  bg-dark " style="background-attachment: fixed;">
-            <div class="container text-white">
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ">
-                        <a class="nav-link active" href="#Italian">Italian Pizza</a>
-                        <a class="nav-link" href="#Special">Hawaiian Special</a>
-                        <a class="nav-link" href="#Hawaiian">Hawaiian Pizza</a>
-                        <a class="nav-link " href="#Greek">Greek Pizza</a>
-                        <a class="nav-link " href="#Ultimate">Ultimate Overload</a>
-                        <a class="nav-link " href="#Bacon">Bacon Pizza</a>
-                        <a class="nav-link" href="#Crispy">Bacon Crispy Thins</a>
-                        <a class="nav-link " href="#Ham">Ham & Pineapple</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-warning active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Italian Pizza</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-warning" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Hawaiian Special</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-warning" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+            </li>
+        </ul>
         <!-- nav end -->
-        <div >
-            <div id="Italian">
-                <H2 class="text-warning text-center mt-5 fst-italic">Italian pizza</H2>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="row text-white mt-5">
-                    <div class="col-md-6 col-lg-3 col-12 ">
-                        <div class="card" style="width: 18rem;">
-                            <img src="img/i-1.jpeg" class="card-img-top" alt="..." height="70%" width="70%">
-                            <div class="card-body">
-                                <h5 class="card-title">Italian pizza</h5>
-                                <p class="card-text">A delight for veggie lovers! Choose from our wide range of delicious vegetarian pizzas, it's softer and tastier</p>
-                                <p> with olives and basil leaves</p>
-                                <p>
-                                <h6>Price:</h6>$20</p>
-                                <a href="pizza.php" class="btn btn-warning">Add Cart</a>
+                    <?php
+                    while ($a = mysqli_fetch_array($result)) {
+                    ?>
+                        <div class="col-md-6 col-lg-3 col-12 ">
+                            <div class="card" style="width: 18rem;">
+                                <img src="item_image/<?php echo $a[5]; ?>" class="card-img-top" alt="..." height="70%" width="70%">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $a[0]; ?></h5>
+                                    <p class="card-text"><?php echo $a[3]; ?></p>
+                                    <p> <?php echo $a[4]; ?></p>
+                                    <p>
+                                    <h6>Price:</h6>$<?php echo $a[2]; ?></p>
+                                    <a href="pizza.php?id=<?php echo $a[1]; ?>" class="btn btn-warning">Add Cart</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-12 ">
-                        <div class="card" style="width: 18rem;">
-                            <img src="img/i-2.jpeg" class="card-img-top" alt="..." height="70%" width="70%">
-                            <div class="card-body">
-                                <h5 class="card-title">Italian pizza</h5>
-                                <p class="card-text">A hugely popular margherita, with a deliciously tangy single cheese topping with mozzarella large in size</p>
-                                <p> with olives ,onion and tamato</p>
-                                <p>
-                                <h6>Price:</h6>$15</p>
-                                <a href="pizza.php" class="btn btn-warning">Add Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-12 ">
-                        <div class="card" style="width: 18rem;">
-                            <img src="img/i-3.jpeg" class="card-img-top" alt="..." height="70%" width="70%">
-                            <div class="card-body">
-                                <h5 class="card-title">Italian pizza</h5>
-                                <p class="card-text">Some quick delivery in Pizzria and sweet food of Pizzria's pizza.with large in size and with extra cheese order now</p>
-                                <p> with olives ,capsicum and tamato</p>
-                                <p>
-                                <h6>Price:</h6>$35</p>
-                                <a href="pizza.php" class="btn btn-warning">Add Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-12 ">
-                        <div class="card" style="width: 18rem;">
-                            <img src="img/i-4.jpg" class="card-img-top" alt="..." height="70%" width="70%">
-                            <div class="card-body">
-                                <h5 class="card-title">Italian pizza</h5>
-                                <p class="card-text">Choose your favourite pizza pasta from the Domino's pasta menu. Get with your choice with tikka masala, cheesy jalapeno and more.</p>
-                                <p> with olives ,capsicum and tamato</p>
-                                <p>
-                                <h6>Price:</h6>$20</p>
-                                <a href="pizza.php" class="btn btn-warning">Add Cart</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row text-white mt-5">
+                    <?php
+                    while ($a1 = mysqli_fetch_array($result1)) {
+                    ?>
+                        <div class="col-md-6 col-lg-3 col-12 ">
+                            <div class="card" style="width: 18rem;">
+                                <img src="item_image/<?php echo $a1[5]; ?>" class="card-img-top" alt="..." height="70%" width="70%">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $a1[0]; ?></h5>
+                                    <p class="card-text"><?php echo $a1[3]; ?></p>
+                                    <p> <?php echo $a1[4]; ?></p>
+                                    <p>
+                                    <h6>Price:</h6>$<?php echo $a1[2]; ?></p>
+                                    <a href="pizza.php?id=<?php echo $a1[1]; ?>" class="btn btn-warning">Add Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="row text-white mt-5">
+                    <?php
+                    while ($a2 = mysqli_fetch_array($result2)) {
+                    ?>
+                        <div class="col-md-6 col-lg-3 col-12 ">
+                            <div class="card" style="width: 18rem;">
+                                <img src="item_image/<?php echo $a2[5]; ?>" class="card-img-top" alt="..." height="70%" width="70%">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $a2[0]; ?></h5>
+                                    <p class="card-text"><?php echo $a2[3]; ?></p>
+                                    <p> <?php echo $a2[4]; ?></p>
+                                    <p>
+                                    <h6>Price:</h6>$<?php echo $a2[2]; ?></p>
+                                    <a href="pizza.php?id=<?php echo $a2[1]; ?>" class="btn btn-warning">Add Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
 
-
-            <div id="Special">
+        <!-- <div id="Special">
                 <H2 class="text-warning text-center mt-5 fst-italic">Hawaiian Special</H2>
                 <div class="row text-white mt-5">
                     <div class="col-md-6 col-lg-3 col-12 ">
@@ -169,10 +177,10 @@ background-repeat: no-repeat; background-size: cover;
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
-            <div id="Hawaiian">
+        <!-- <div id="Hawaiian">
                 <div>
                     <H2 class="text-warning text-center mt-5 fst-italic">Hawaiian Pizza</H2>
                 </div>
@@ -230,10 +238,10 @@ background-repeat: no-repeat; background-size: cover;
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
-            <div id="Greek">
+        <!-- <div id="Greek">
                 <H2 class="text-warning text-center mt-5 fst-italic">Greek Pizza</H2>
                 <div class="row text-white mt-5">
                     <div class="col-md-6 col-lg-3 col-12 ">
@@ -289,9 +297,9 @@ background-repeat: no-repeat; background-size: cover;
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div id="Ultimate" class="">
+        <!-- <div id="Ultimate" class="">
                 <H2 class="text-warning text-center mt-5 fst-italic">Ultimate Overload</H2>
                 <div class="row text-white mt-5">
                     <div class="col-md-6 col-lg-3 col-12 ">
@@ -347,9 +355,9 @@ background-repeat: no-repeat; background-size: cover;
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div id="Bacon ">
+        <!-- <div id="Bacon ">
                 <H2 class="text-warning text-center mt-5 fst-italic">Bacon Pizza</H2>
                 <div class="row text-white mt-5">
                     <div class="col-md-6 col-lg-3 col-12 ">
@@ -405,9 +413,9 @@ background-repeat: no-repeat; background-size: cover;
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div id="Crispy">
+        <!-- <div id="Crispy">
                 <H2 class="text-warning text-center mt-5 fst-italic">Bacon Crispy Thins</H2>
                 <div class="row text-white mt-5">
                     <div class="col-md-6 col-lg-3 col-12 ">
@@ -463,9 +471,9 @@ background-repeat: no-repeat; background-size: cover;
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div id="Ham" class="mb-5">
+        <!-- <div id="Ham" class="mb-5">
                 <H2 class="text-warning text-center mt-5 fst-italic">Ham & Pineapple</H2>
                 <div class="row text-white mt-5">
                     <div class="col-md-6 col-lg-3 col-12 ">
@@ -521,14 +529,17 @@ background-repeat: no-repeat; background-size: cover;
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+    </div>
     </div>
 
 
-    <?php
-    include_once('footer.php');
-    ?>
+   
+
 </body>
 
 </html>
+
+<?php
+    include_once('footer.php');
+    ?>
