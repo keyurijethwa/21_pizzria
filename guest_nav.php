@@ -3,8 +3,7 @@
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
-$first_part = $components[2];
-echo $first_part;
+$first_part = $components[3];
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +12,7 @@ echo $first_part;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pizzria</title>
     <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="font/css/all.css">
@@ -43,9 +42,9 @@ echo $first_part;
                 <div class="collapse text navbar-collapse  justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item px-3">
-                            <a class="nav-link <?php if ($first_part == "guest_index.php") {
+                            <a class="nav-link <?php if ($first_part == "index.php") {
                                                     echo "active1";
-                                                } ?>" href="guest_index.php"> Home</a>
+                                                } ?>" href="index.php"> Home</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link <?php if ($first_part == "menu.php") {
